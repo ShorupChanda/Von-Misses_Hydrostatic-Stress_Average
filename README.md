@@ -1,6 +1,6 @@
 
     "--------------------------------------------------------------------------"
-    " MATLAB Script: VonMisses_Hydrostatic_Datasort"
+    " MATLAB Script: VonMisses_Hydrostatic_Average"
     "--------------------------------------------------------------------------"
     ""
     " File: VM_HS.mlx"
@@ -14,3 +14,4 @@
     " This code may not be used or distributed without permission."
     ""
     "--------------------------------------------------------------------------"
+This file is used for the data extracted from Ovito after Lammps simulation. The files has 2 column which have been extracted from scatter plot, this mlx file will make average for each time step and then give output of an excel file. 

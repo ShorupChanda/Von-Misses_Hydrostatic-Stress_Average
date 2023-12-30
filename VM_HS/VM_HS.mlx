@@ -1,0 +1,26 @@
+% Replace **txt** with your locations
+
+dataDirectory = '**Location of your Files**';
+fileList = dir(fullfile(dataDirectory, '**filename**.*.txt'));
+column1Average = [];
+column2Average = [];
+
+for i = 1:length(fileList)
+ 
+     data = readmatrix(fullfile(dataDirectory, fileList(i).name), 'NumHeaderLines', 2, 'Delimiter', ' ');
+    data = data(3:end, :);
+    avgColumn1 = mean(data(:, 1));
+    avgColumn2 = mean(data(:, 2));
+    column1Average = [column1Average; avgColumn1];
+    column2Average = [column2Average; avgColumn2];
+end
+format compact;
+disp('Average of Column 1:');
+disp(column1Average);
+disp('Average of Column 2:');
+disp(column2Average);
+format short;
+averageTable = table(column1Average, column2Average, 'VariableNames', {'Average_Column1', 'Average_Column2'});
+excelFileName = '**Location of save file**\VMHS.xlsx';
+writetable(averageTable, excelFileName);
+disp(['Averages saved to Excel file: ' excelFileName]);
